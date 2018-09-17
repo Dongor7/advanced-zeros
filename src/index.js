@@ -27,17 +27,17 @@ module.exports = function getZerosCount(number, base){
 
     let zerosArray = [];
 
-    for (let i = 0; i < newFactorials.length; i++) {
+    newFactorials.forEach((newFac, i) => {
         numBase = number;
         zerosArray.push(0);
 
         while (numBase > 0) {
-            numBase = Math.floor(numBase / newFactorials[i]);
+            numBase = Math.floor(numBase / newFac);
             zerosArray[i] += numBase;
         }
 
         zerosArray[i] = Math.floor(zerosArray[i] / counter[i]);
-    }
+    });
 
     return zerosArray.sort((a,b) => a - b)[0];
 };
